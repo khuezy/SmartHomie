@@ -82,8 +82,8 @@ routes.get('/trunk', async (req, res) => {
 })
 
 routes.put('/charge', async (req, res) => {
-  const {percent} = req.body
-  console.log('Setting charger to : ', percent)
+  let {percent} = req.body
+  console.log(`Setting charger limit to ${percent}`)
   const car = await Tesla.getVehicle()
   await car.setChargeLimit({limit_value: percent})
   
