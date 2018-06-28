@@ -14,8 +14,9 @@ class Tesla {
       password: process.env.TESLA_PASSWORD
     })
 
-    this.vehicle = vehicles[0]
-    return this.vehicle
+    const vehicle = vehicles[0]
+    await vehicle.wakeUp()
+    return vehicle
   }
 
 }

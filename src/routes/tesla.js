@@ -15,7 +15,7 @@ routes.get('/ride', async (req, res) => {
 
   } catch(err) {
     console.log(err.status, err.message)
-    res.send({success: false, message: err})
+    res.send({success: false, message: err.message})
   }
 
 })
