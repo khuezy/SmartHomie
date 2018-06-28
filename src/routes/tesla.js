@@ -62,4 +62,17 @@ routes.put('/port', async (req, res) => {
   res.send({success: true, message: 'ok'})
 
 })
+
+routes.put('/trunk', async (req, res) => {
+  const {state} = req.body
+
+  const car = await Tesla.getVehicle()
+  switch (state) {
+    default:
+      car.trunkOpen()
+  }
+
+  res.send({success: true, message: 'ok'})
+
+})
 module.exports = routes
