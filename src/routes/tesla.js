@@ -65,13 +65,10 @@ routes.put('/port', async (req, res) => {
 
 routes.put('/trunk', async (req, res) => {
   const {state} = req.body
-
+  console.log('opening trunk...')
   const car = await Tesla.getVehicle()
-  switch (state) {
-    default:
-      car.trunkOpen()
-  }
-
+  const result = await car.trunkOpen()
+  console.log(result)
   res.send({success: true, message: 'ok'})
 
 })
