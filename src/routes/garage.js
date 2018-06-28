@@ -18,7 +18,7 @@ routes.put('/door', (req, res) => {
       res.status(400)
       res.send({success: false, message: 'Bad request'})
   }
-  
+
 })
 
 
