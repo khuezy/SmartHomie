@@ -3,21 +3,22 @@ const myq = require('../lib/myq')
 
 const garage = require('../handlers/garage')
 
-routes.put('/door', (req, res) => {
+routes.put('/door', async (req, res) => {
 
   const {state} = req.body
 
+  let response = {}
   switch (state) {
     case 'open':
-      garage.open(res)
+      response = await garage.open()
       break
     case 'close':
-      garage.close(res)
+      response = await garage.close()
       break
     default:
-      res.status(400)
-      res.send({success: false, message: 'Bad request'})
+      respones = {success: false, message: 'Bad request'}
   }
+  res.send(response)
 
 })
 

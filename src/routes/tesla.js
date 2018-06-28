@@ -6,7 +6,7 @@ const garage = require('../handlers/garage')
 
 routes.get('/ride', async (req, res) => {
   try {
-    garage.open(res)
+    garage.open()
 
     const car = await Tesla.getVehicle()
     await car.doorUnlock()

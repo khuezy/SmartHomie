@@ -9,56 +9,52 @@ class Garage {
     this.open = this.open.bind(this)
   }
 
-  async close(res) {
+  async close() {
     const result = await myq.login()
     const devices = await myq.getDevices([17])
     const door = devices.devices[0]
     console.log('door: ', door)
 
     if (!door) {
-      res.status(500)
-      res.send({success: false, message: 'Garage not found'})
-      return
+      return {success: false, message: 'Garage not found'}
     }
     if (door.online) {
       if (door.doorState !== 2) {
         const response = await myq.setDoorState(door.id, CLOSE)
         console.log(response)
-        res.send({success: true, message: response})
+        return {success: true, message: response}
       } else {
-        res.send({success: true, message: 'Already closed.'})
+        return {success: true, message: 'Already closed.'}
       }
     } else {
       console.log('Garage offline... waiting...')
       setTimeout(() => {
-        this.close(res)
+        this.close()
       }, 5000)
     }
   }
 
-  async open(res) {
+  async open() {
     const result = await myq.login()
     const devices = await myq.getDevices([17])
     const door = devices.devices[0]
     console.log('door: ', door)
 
     if (!door) {
-      res.status(500)
-      res.send({success: false, message: 'Garage not found'})
-      return
+      return {success: false, message: 'Garage not found'}
     }
     if (door.online) {
       if (door.doorState !== 1) {
         const response = await myq.setDoorState(door.id, OPEN)
         console.log(response)
-        res.send({success: true, message: response})
+        return {success: true, message: response}
       } else {
-        res.send({success: true, message: 'Already opened.'})
+        return {success: true, message: 'Already opened.'}
       }
     } else {
       console.log('Garage offline... waiting...')
       setTimeout(() => {
-        this.open(res)
+        this.open()
       }, 5000)
     }
   }
