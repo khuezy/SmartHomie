@@ -1,0 +1,27 @@
+{
+  "name": "smarthomie",
+  "version": "1.0.0",
+  "description": "Smart Home",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "myq-api": "^0.0.2",
+    "tesla-api": "^2.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khuezy/SmartHomie.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/khuezy/SmartHomie/issues"
+  },
+  "homepage": "https://github.com/khuezy/SmartHomie#readme"
+}
