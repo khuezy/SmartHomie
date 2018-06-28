@@ -63,12 +63,22 @@ routes.put('/port', async (req, res) => {
 
 })
 
-routes.put('/trunk', async (req, res) => {
+routes.get('/frunk', async (req, res) => {
   const {state} = req.body
-  console.log('opening trunk...')
+
   const car = await Tesla.getVehicle()
-  const result = await car.trunkOpen()
-  console.log(result)
+  await car.trunkOpen({which_trunk: 'front'})
+  
+  res.send({success: true, message: 'ok'})
+
+})
+
+routes.get('/trunk', async (req, res) => {
+  const {state} = req.body
+
+  const car = await Tesla.getVehicle()
+  await car.trunkOpen({which_trunk: 'rear'})
+  
   res.send({success: true, message: 'ok'})
 
 })
