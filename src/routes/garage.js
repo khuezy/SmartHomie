@@ -3,7 +3,7 @@ const myq = require('../lib/myq')
 
 const garage = require('../handlers/garage')
 
-routes.put('/garage', (req, res) => {
+routes.put('/door', (req, res) => {
 
   const {state} = req.body
 

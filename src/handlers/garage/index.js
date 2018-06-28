@@ -1,4 +1,4 @@
-const myq = require('../lib/myq')
+const myq = require('../../lib/myq')
 
 const OPEN = 1
 const CLOSE = 0
