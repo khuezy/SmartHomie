@@ -95,8 +95,7 @@ routes.put('/charge', async (req, res) => {
 routes.get('/warm-up', async(req, res) => {
   const car = await Tesla.getVehicle()
   await car.setTemps({
-    driver_temp: 24,
-    passenger_temp: 24
+    driver_temp: 24
   })
   await car.autoConditioningStart()
   res.send({success: true, message: 'ok'})
